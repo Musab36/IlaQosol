@@ -34,66 +34,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayJokes() {
-        Categories category = new Categories("Sheko qosol badan oo Juxa eh");
+        Categories category = new Categories("Sheko qosol badan oo Juxa eh", "Loma tawat aajel famal" +
+                "kun atrawa sub dihut, Jenet lum esa balaw rud et hu!");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan laba nin oo saxiba ah", "Tin selum azara bir kat hul" +
+                "famaj nana tib sus ovara mit nam azal, jeer tikraw seb ejhud!");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh");
+        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
-
-        category = new Categories("Sheko qosol badan oo Juxa eh");
-        categories.add(category);
-
-        category = new Categories("Sheko qosol badan oo Juxa eh");
-        categories.add(category);
-
 
         mAdapter.notifyDataSetChanged();
     }

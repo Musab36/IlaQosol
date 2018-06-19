@@ -1,7 +1,6 @@
 package com.salajim.musab.ilaqosol.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.salajim.musab.ilaqosol.R;
-import com.salajim.musab.ilaqosol.activities.DetailActivity;
 import com.salajim.musab.ilaqosol.models.Categories;
 
 import java.util.List;
 
-public class JokesCategoriesAdapter extends BaseAdapter {
+public class JokesDescriptionAdapter extends BaseAdapter {
     private List<Categories> categories;
     private Context mContext;
 
-    public JokesCategoriesAdapter(List<Categories> categories, Context mContext) {
+    public JokesDescriptionAdapter(List<Categories> categories, Context mContext) {
         this.categories = categories;
         this.mContext = mContext;
     }
@@ -44,31 +42,20 @@ public class JokesCategoriesAdapter extends BaseAdapter {
         ViewHolder holder;
         if(convertView==null) {
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
-            holder.joke = (TextView) convertView.findViewById(R.id.jokeTextView);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.description, parent, false);
+            holder.description = (TextView) convertView.findViewById(R.id.description);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.joke.setTag(position);
-        holder.joke.setText(category.getJoke());
-
-        holder.joke.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, DetailActivity.class);
-                intent.putExtra("description", category.getDescription());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
-            }
-        });
+        holder.description.setText(category.getDescription());
 
         return convertView;
     }
 
     public class ViewHolder {
-        TextView joke;
+        TextView description;
     }
 }
