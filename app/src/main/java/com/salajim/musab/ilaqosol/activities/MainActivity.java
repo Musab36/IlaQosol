@@ -1,5 +1,8 @@
 package com.salajim.musab.ilaqosol.activities;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
@@ -16,9 +19,9 @@ import com.salajim.musab.ilaqosol.fragments.NewJokesFragment;
 public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private SectionsPagerAdapter mAdapter;
+    private Context context;
 
-    private static final Integer[] tabIcons = {R.drawable.laughing, R.drawable.newjoke, R.drawable.heart};
-
+    private static final Integer[] tabIcons = {R.drawable.laughing, R.drawable.new_joke, R.drawable.heart};
 
 
     @Override
@@ -34,15 +37,40 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         setupViewPager(mViewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        // Setting up tab icons
-        for (int i = 0; i < tabIcons.length; i++) {
-            TabLayout.Tab tab = tabLayout.getTabAt(i);//get tab via position
-            if (tab != null)
-                tab.setIcon(tabIcons[i]);//set icon
-        }
+        // Setting up tabs icons
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+
+        tabLayout.getTabAt(0).getIcon().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(1).getIcon().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(2).getIcon().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.SRC_IN);
+
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.SRC_IN);
+                //for removing the color of first icon when switched to next tab
+                tabLayout.getTabAt(0).getIcon().clearColorFilter();
+                //for other tabs
+                tab.getIcon().clearColorFilter();
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
     }
 
     // Adding Fragments and setting the adapter with ViewPager

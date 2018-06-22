@@ -138,10 +138,10 @@ public class JokesFragment extends Fragment {
         category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
+        category = new Categories("Sheko qosol badan oo maseyr ah", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
-        category = new Categories("Sheko qosol badan oo Juxa eh", "hjxcjki fkjfkj jkhjd");
+        category = new Categories("Sheko qosol badan nin waalan", "hjxcjki fkjfkj jkhjd");
         categories.add(category);
 
         mAdapter.notifyDataSetChanged();
