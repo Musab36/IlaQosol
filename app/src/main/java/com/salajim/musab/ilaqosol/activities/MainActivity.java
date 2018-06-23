@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // ActionBar custom title
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.main_title);
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Sheekooyin Qosol Badan");
 
         // tab elevation setup
         View tabs = findViewById(R.id.tabs);

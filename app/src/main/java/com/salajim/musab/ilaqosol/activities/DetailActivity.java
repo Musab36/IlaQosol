@@ -24,12 +24,11 @@ public class DetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         // ActionBar custom title
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.detail_title);
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Sheeka Qosol Badan");
 
         Intent intent = getIntent();
         String description = intent.getStringExtra("description");
         desc.setText(description);
-
     }
 }
