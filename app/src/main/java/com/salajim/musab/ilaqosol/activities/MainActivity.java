@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -23,11 +24,16 @@ public class MainActivity extends AppCompatActivity {
 
     private static final Integer[] tabIcons = {R.drawable.laughing, R.drawable.new_joke, R.drawable.heart};
 
+    ActionBar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // ActionBar custom title
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.main_title);
 
         // tab elevation setup
         View tabs = findViewById(R.id.tabs);
