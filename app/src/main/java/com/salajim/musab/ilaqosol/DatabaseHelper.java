@@ -30,6 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean addData(String item1) {
+        // Inserting data into the database
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, item1);
@@ -43,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    // Getting the inserted data from the database
     public Cursor getListContents(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);

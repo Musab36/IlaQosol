@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.salajim.musab.ilaqosol.DatabaseHelper;
 import com.salajim.musab.ilaqosol.R;
+import com.salajim.musab.ilaqosol.adapters.JokesDescriptionAdapter;
 import com.twotoasters.jazzylistview.JazzyHelper;
 import com.twotoasters.jazzylistview.JazzyListView;
 
@@ -27,6 +28,8 @@ import butterknife.ButterKnife;
 public class FavoriteFragment extends Fragment {
     @Bind(R.id.jazz)
     JazzyListView jazzyListView;
+
+    private JokesDescriptionAdapter adapter;
 
     DatabaseHelper myDB;
 
@@ -52,7 +55,7 @@ public class FavoriteFragment extends Fragment {
         } else {
             while(data.moveToNext()) {
                 myList.add(data.getString(1));
-                ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, myList);
+                ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), R.layout.detail, myList);
                 jazzyListView.setAdapter(listAdapter);
                 jazzyListView.setTransitionEffect(JazzyHelper.CARDS);
             }
