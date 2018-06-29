@@ -6,6 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.salajim.musab.ilaqosol.models.Categories;
+
+import java.util.LinkedList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "jokes.db";
     public static final String TABLE_NAME = "details_data";
@@ -45,8 +50,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
     // Getting the inserted data from the database
-    public Cursor getListContents(){
+    public List<Categories> jokes(String filter) {
+        String query;
+        if(filter.equals("")){
+            //regular query
+            query = "SELECT  * FROM " + TABLE_NAME;
+        }else{
+            //filter results by filter option provided
+            query = "SELECT  * FROM " + TABLE_NAME + " ORDER BY "+ filter;
+        }
+
+        List<Categories> jokesList = new LinkedList<>();
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        return data;
-    }}
+        Cursor cursor = db.rawQuery(query, null);
+        Categories joke;
+
+        if (cursor.moveToFirst()) {
+            do {
+               joke = new Categories();
+
+                joke.setDescription(cursor.getString(cursor.getColumnIndex(COL2)));
+                jokesList.add(joke);
+            } while (cursor.moveToNext());
+        }
+
+
+        return jokesList;
+    }
+
+    /**Query only 1 record**/
+    public Categories getJokes(long id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT  * FROM " + TABLE_NAME + " WHERE _id="+ id;
+        Cursor cursor = db.rawQuery(query, null);
+
+        Categories receivedJoke = new Categories();
+        if(cursor.getCount() > 0) {
+            cursor.moveToFirst();
+
+            receivedJoke.setDescription(cursor.getString(cursor.getColumnIndex(COL2)));
+
+        }
+
+
+
+        return receivedJoke;
+
+
+    }
+}

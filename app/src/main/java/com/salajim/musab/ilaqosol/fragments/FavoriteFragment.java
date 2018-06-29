@@ -1,23 +1,17 @@
 package com.salajim.musab.ilaqosol.fragments;
 
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.Toast;
 
 import com.salajim.musab.ilaqosol.DatabaseHelper;
 import com.salajim.musab.ilaqosol.R;
 import com.salajim.musab.ilaqosol.adapters.JokesDescriptionAdapter;
 import com.twotoasters.jazzylistview.JazzyHelper;
 import com.twotoasters.jazzylistview.JazzyListView;
-
-import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +26,7 @@ public class FavoriteFragment extends Fragment {
     private JokesDescriptionAdapter adapter;
 
     DatabaseHelper myDB;
+    private String filter = "";
 
     public FavoriteFragment() {
         // Required empty public constructor
@@ -45,23 +40,16 @@ public class FavoriteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
         ButterKnife.bind(this, view);
 
-        myDB = new DatabaseHelper(getActivity());
-
-        ArrayList<String> myList = new ArrayList<>();
-        Cursor data = myDB.getListContents();
-
-        if (data.getCount() == 0) {
-            Toast.makeText(getActivity(), "There are no contents in this list!",Toast.LENGTH_LONG).show();
-        } else {
-            while(data.moveToNext()) {
-                myList.add(data.getString(1));
-                ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), R.layout.detail, myList);
-                jazzyListView.setAdapter(listAdapter);
-                jazzyListView.setTransitionEffect(JazzyHelper.CARDS);
-            }
-        }
+        loadData(filter);
 
         return view;
+    }
+
+    private void loadData(String filter) {
+        myDB = new DatabaseHelper(getActivity());
+        adapter = new JokesDescriptionAdapter(myDB.jokes(filter), getActivity(), jazzyListView);
+        jazzyListView.setAdapter(adapter);
+        jazzyListView.setTransitionEffect(JazzyHelper.CARDS);
     }
 
 
